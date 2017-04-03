@@ -30,12 +30,12 @@ class MLEV:
             elif np.sum(np.isnan(self.X)) != 0:
                 raise ValueError('Missing values are not allowed in design matrix (X)')
             elif np.linalg.matrix_rank(self.X.T) < np.min(self.X.shape):
-                raise ValueError('X_Transpose is rank deficient, remove linearly dependent rows from design matrix (X)')
+                raise ValueError('Design matrix (X) is rank deficient, please remove linearly dependent rows and/or columns')
             else:
                 self.n = float(self.X.shape[0])
                 self.p = float(self.X.shape[1])
                 self.theta2_init = float(1)
-                print('Initiation is now complete')
+                print('Instantiation completed!')
 
     def describe(self):
         print('The dimension of design matrix is (' + str(int(self.n)) + ', ' + str(int(self.p)) + ')')
